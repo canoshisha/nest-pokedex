@@ -29,6 +29,12 @@ docker-compose up -d
 yarn start:dev
 ```
 
+6. Ejecuta el seed para poblar la base de datos con datos de prueba:
+
+```bash
+curl -X GET http://localhost:3000/seed
+```
+
 ## Ejecutar pruebas
 
 Para ejecutar las pruebas end-to-end:
@@ -46,7 +52,8 @@ yarn test:e2e
 │   ├── app.module.ts           # Módulo principal
 │   ├── main.ts                 # Punto de entrada
 │   ├── common/                 # Módulos y pipes comunes
-│   └── pokemon/                # Módulo de Pokémon (controlador, servicio, DTOs, entidades)
+│   ├── pokemon/                # Módulo de Pokémon (controlador, servicio, DTOs, entidades)
+│   └── seed/                   # Módulo de seed para poblar la base de datos
 ├── test/                       # Pruebas end-to-end
 └── public/                     # Archivos estáticos
 ```

@@ -77,6 +77,19 @@ export class PokemonService {
     return;
   }
 
+  async deleteAll() {
+    await this.pokemonModel.deleteMany({});
+  }
+
+  async createMany(pokemons: CreatePokemonDto[]) {
+    try {
+      await this.pokemonModel.insertMany(pokemons);
+      return `${pokemons.length} pokemons created successfully`;
+    } catch (error) {
+      this.haddleExceptions(error);
+    }
+  }
+
   private haddleExceptions(error: any) {
     if (
       error &&
