@@ -29,6 +29,28 @@ docker-compose up -d
 yarn start:dev
 ```
 
+## Ejecutar pruebas
+
+Para ejecutar las pruebas end-to-end:
+
+```bash
+yarn test:e2e
+```
+
+## Estructura del proyecto
+
+```
+├── docker-compose.yaml         # Configuración de MongoDB con Docker
+├── package.json                # Dependencias y scripts
+├── src/                        # Código fuente principal
+│   ├── app.module.ts           # Módulo principal
+│   ├── main.ts                 # Punto de entrada
+│   ├── common/                 # Módulos y pipes comunes
+│   └── pokemon/                # Módulo de Pokémon (controlador, servicio, DTOs, entidades)
+├── test/                       # Pruebas end-to-end
+└── public/                     # Archivos estáticos
+```
+
 ## Stack usado
 * [NestJS](https://nestjs.com/) - Framework principal
 * [MongoDB](https://www.mongodb.com/) - Base de datos NoSQL
@@ -46,6 +68,11 @@ El servidor se ejecuta por defecto en `http://localhost:3000`.
 - `DELETE /pokemon/:id` - Elimina un pokémon
 
 Puedes probar los endpoints usando herramientas como [Postman](https://www.postman.com/) o [Insomnia](https://insomnia.rest/).
+
+## Recomendaciones
+- Asegúrate de que el puerto 27017 (MongoDB) esté libre antes de levantar Docker.
+- Si necesitas limpiar la base de datos, puedes detener el contenedor y eliminar la carpeta `mongo/`.
+- Para producción, revisa las variables de entorno y la configuración de seguridad.
 
 ## Licencia
 
