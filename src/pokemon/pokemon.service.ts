@@ -91,13 +91,10 @@ export class PokemonService {
   }
 
   private haddleExceptions(error: any) {
-    if (
-      error &&
-      typeof error === 'object' &&
-      'code' in error &&
-      error.code === 11000
-    ) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    if (error.code === 11000) {
       throw new BadRequestException(
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         `Pokemon already exists in DB ${JSON.stringify(error.keyValue)}`,
       );
     }
