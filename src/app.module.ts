@@ -21,7 +21,9 @@ import { joiValidationSchema } from './config/joi.validation';
       rootPath: join(__dirname, '..', 'public'),
     }),
     PokemonModule,
-    MongooseModule.forRoot(process.env.MONGODB as string), // Usa la variable de entorno MONGODB del .env
+    MongooseModule.forRoot(process.env.MONGODB as string, {
+      dbName: 'pokedex', // Nombre de la base de datos
+    }), // Usa la variable de entorno MONGODB del .env
     CommonModule,
     SeedModule,
   ],
