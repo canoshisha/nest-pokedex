@@ -17,19 +17,28 @@ yarn install
 npm i -g @nestjs/cli
 ```
 
-4. Levanta la base de datos MongoDB con Docker:
+4. Copia el archivo de variables de entorno de ejemplo y configúralo según tus necesidades:
+
+```bash
+cp .env.template .env
+```
+
+Edita el archivo `.env` para establecer tus propias variables de entorno.
+
+
+5. Levanta la base de datos MongoDB con Docker:
 
 ```bash
 docker-compose up -d
 ```
 
-5. Inicia el servidor de desarrollo:
+6. Inicia el servidor de desarrollo:
 
 ```bash
 yarn start:dev
 ```
 
-6. Ejecuta el seed para poblar la base de datos con datos de prueba:
+7. Ejecuta el seed para poblar la base de datos con datos de prueba:
 
 ```bash
 curl -X GET http://localhost:3000/seed
@@ -48,6 +57,7 @@ yarn test:e2e
 ```
 ├── docker-compose.yaml         # Configuración de MongoDB con Docker
 ├── package.json                # Dependencias y scripts
+├── .env.template               # Archivo de ejemplo para variables de entorno
 ├── src/                        # Código fuente principal
 │   ├── app.module.ts           # Módulo principal
 │   ├── main.ts                 # Punto de entrada
@@ -74,7 +84,7 @@ El servidor se ejecuta por defecto en `http://localhost:3000`.
 - `PATCH /pokemon/:id` - Actualiza un pokémon
 - `DELETE /pokemon/:id` - Elimina un pokémon
 
-Puedes probar los endpoints usando herramientas como [Postman](https://www.postman.com/) o [Insomnia](https://insomnia.rest/).
+Puedes probar los endpoints usando herramientas como [Postman](https://www.postman.com/).
 
 ## Recomendaciones
 - Asegúrate de que el puerto 27017 (MongoDB) esté libre antes de levantar Docker.
@@ -82,5 +92,3 @@ Puedes probar los endpoints usando herramientas como [Postman](https://www.postm
 - Para producción, revisa las variables de entorno y la configuración de seguridad.
 
 ## Licencia
-
-MIT
