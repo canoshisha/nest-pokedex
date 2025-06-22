@@ -20,5 +20,6 @@ export class SeedService {
     });
 
     await Promise.all(createPokemonPromises);
+    return 'Seed executed';
   }
 }
